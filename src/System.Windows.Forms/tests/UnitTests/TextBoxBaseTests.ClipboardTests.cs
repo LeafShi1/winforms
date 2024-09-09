@@ -17,10 +17,13 @@ public partial class TextBoxBaseTests
                 SelectionStart = 1,
                 SelectionLength = 2
             };
+            control.Focus();
+            Thread.Sleep(100);
             control.Copy();
 
             control.Text = "text";
             control.SelectionLength = 2;
+            Thread.Sleep(100);
             control.Paste();
             Assert.Equal("bcxt", control.Text);
 
@@ -44,6 +47,7 @@ public partial class TextBoxBaseTests
 
             control.Text = "text";
             control.SelectionLength = 2;
+            Thread.Sleep(100);
             control.Paste();
             Assert.Equal("bcxt", control.Text);
             Assert.True(control.CanUndo);
@@ -77,6 +81,7 @@ public partial class TextBoxBaseTests
 
             control.Text = "text";
             control.SelectionLength = 2;
+            Thread.Sleep(100);
             control.Paste();
             Assert.Equal("bcxt", control.Text);
             Assert.True(control.CanUndo);
@@ -102,6 +107,7 @@ public partial class TextBoxBaseTests
 
             control.Text = "text";
             control.SelectionLength = 2;
+            Thread.Sleep(100);
             control.Paste();
             Assert.Equal("bcxt", control.Text);
             Assert.True(control.CanUndo);
@@ -126,6 +132,7 @@ public partial class TextBoxBaseTests
             int createdCallCount = 0;
             control.HandleCreated += (sender, e) => createdCallCount++;
 
+            Thread.Sleep(100);
             control.Cut();
             Assert.Equal("a", control.Text);
             Assert.True(control.IsHandleCreated);
@@ -135,6 +142,7 @@ public partial class TextBoxBaseTests
 
             control.Text = "text";
             control.SelectionLength = 2;
+            Thread.Sleep(100);
             control.Paste();
             Assert.Equal("bcxt", control.Text);
             Assert.True(control.CanUndo);
@@ -149,6 +157,7 @@ public partial class TextBoxBaseTests
         public void TextBoxBase_Paste_InvokeEmpty_Success()
         {
             using SubTextBox control = new();
+            Thread.Sleep(100);
             control.Paste();
             Assert.NotNull(control.Text);
             Assert.True(control.IsHandleCreated);
@@ -163,6 +172,7 @@ public partial class TextBoxBaseTests
                 SelectionStart = 1,
                 SelectionLength = 2
             };
+            Thread.Sleep(100);
             control.Paste();
             Assert.Equal("abc", control.Text);
             Assert.True(control.IsHandleCreated);
@@ -181,6 +191,7 @@ public partial class TextBoxBaseTests
 
             control.Text = "text";
             control.SelectionLength = 2;
+            Thread.Sleep(100);
             control.Paste();
             Assert.Equal("bcxt", control.Text);
 
