@@ -378,7 +378,7 @@ public abstract partial class ButtonBase : Control, ICommandBindingTargetProvide
                 int actualIndex = _imageIndex.ActualIndex;
 
                 // Before VS 2005 (Whidbey) we used to use ImageIndex rather than ImageIndexer.ActualIndex.
-                // ImageIndex clamps to the length of the image list.  We need to replicate this logic here for
+                // ImageIndex clamps to the length of the image list. We need to replicate this logic here for
                 // backwards compatibility. We do not bake this into ImageIndexer because different controls
                 // treat this scenario differently.
                 if (actualIndex >= _imageList.Images.Count)
@@ -1054,7 +1054,8 @@ public abstract partial class ButtonBase : Control, ICommandBindingTargetProvide
     protected virtual void OnCommandParameterChanged(EventArgs e) => RaiseEvent(s_commandParameterChangedEvent, e);
 
     /// <summary>
-    ///  Called in the context of <see cref="OnClick(EventArgs)"/> to invoke <see cref="Input.ICommand.Execute(object?)"/> if the context allows.
+    ///  Called in the context of <see cref="OnClick(EventArgs)"/> to invoke
+    ///  <see cref="Input.ICommand.Execute(object?)"/> if the context allows.
     /// </summary>
     /// <param name="e">An empty <see cref="EventArgs"/> instance.</param>
     protected virtual void OnRequestCommandExecute(EventArgs e) =>
