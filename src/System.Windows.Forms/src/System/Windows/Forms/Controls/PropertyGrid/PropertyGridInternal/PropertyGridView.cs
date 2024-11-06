@@ -3997,7 +3997,7 @@ internal sealed partial class PropertyGridView :
             startRow = 0;
         }
 
-        if (fullRefresh || OwnerGrid.HavePropertyEntriesChanged())
+        if (OwnerGrid.HavePropertyEntriesChanged())
         {
             if (HasEntries && !InPropertySet && !CommitEditTextBox())
             {
@@ -4396,10 +4396,18 @@ internal sealed partial class PropertyGridView :
             _selectedGridEntry.HasFocus = FocusInside;
         }
 
-        if (!_flags.HasFlag(Flags.IsNewSelection) && !_flags.HasFlag(Flags.InPropertySet))
+        if (_flags != 0 && !_flags.HasFlag(Flags.IsNewSelection) && !_flags.HasFlag(Flags.InPropertySet))
         {
             Focus();
         }
+        else
+        {
+        }
+
+        //if (_flags.HasFlag(Flags.InPropertySet))
+        //{
+        //    int i = 0;
+        //}
 
         InvalidateRow(oldSelectedRow);
 
