@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.Runtime.InteropServices;
 using System.Windows.Forms.Layout;
-using System.Windows.Forms.Primitives;
 using System.Windows.Forms.VisualStyles;
 using Windows.Win32.System.Variant;
 using Windows.Win32.UI.Accessibility;
